@@ -34,7 +34,7 @@ if (!$id) {
 */
 
 // Retrieve optin 
-$optin = [];
+$optin = array();
 if ($id) {
     $optin = $perfit->optins->id($id)->get();
 }
@@ -55,7 +55,7 @@ $fields = $perfit->fields->limit(1000)->get();
 $interests = $perfit->interests->limit(1000)->get();
 
 // Obtain selected interests
-$selectedInterests = [];
+$selectedInterests = array();
 if ($optin && isset($optin->data->form) && isset($optin->data->form->interests)) {
     foreach ($optin->data->form->interests as $interest) {
         $selectedInterests[$interest->id] = $interest;
@@ -63,7 +63,7 @@ if ($optin && isset($optin->data->form) && isset($optin->data->form->interests))
 }
 
 // Obtain selected fields
-$selectedFields = [];
+$selectedFields = array();
 if ($optin && isset($optin->data->form) && isset($optin->data->form->fields)) {
     foreach ($optin->data->form->fields as $field) {
         $selectedFields[$field->id] = $field;
@@ -71,7 +71,7 @@ if ($optin && isset($optin->data->form) && isset($optin->data->form->fields)) {
 }
 
 // Move selected interests to top of interests list
-$topInterest = [];
+$topInterest = array();
 foreach ($interests->data as $k => $v) {
     if (isset($selectedInterests[$v->id])) {
         array_unshift($topInterests, $v);
@@ -82,7 +82,7 @@ foreach ($topInterests as $k => $v)
     array_unshift($interests->data, $v);
 
 // Move selected fields to top of fields list
-$topFields = [];
+$topFields = array();
 foreach ($fields->data as $k => $v) {
     if (isset($selectedFields[$v->id])) {
         array_unshift($topFields, $v);
@@ -93,7 +93,7 @@ foreach ($topFields as $k => $v)
     array_unshift($fields->data, $v);
 
 // Move selected lists to top of lists list
-$topLists = [];
+$topLists = array();
 if ($optin) {
     foreach ($lists->data as $k => $v) {
         if (in_array($v->id, $optin->data->lists)) {
