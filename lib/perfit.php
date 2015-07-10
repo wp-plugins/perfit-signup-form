@@ -16,11 +16,11 @@ class Perfit {
 	/**
 	 * @var array Default settings
 	 */
-	private $defaultSettings = [
+	private $defaultSettings = array(
 		'url'				=> "http://test.myperfit.com:8881",
 		'version'			=> null,
 		'language'			=> 'es-es',
-	];
+	);
 
 	/**
 	 * @var $curl_opts Curl options
@@ -40,7 +40,7 @@ class Perfit {
 	/**
 	 * @var array Permitted http methods
 	 */
-	private $httpMethods = ['GET', 'POST', 'PUT', 'DELETE'];
+	private $httpMethods = array('GET', 'POST', 'PUT', 'DELETE');
 
 	/**
 	 * @var $namespace Namespace to make the request to
@@ -119,7 +119,7 @@ class Perfit {
 	 */
 	public function login($user, $password, $account=null) {
 
-		$params = ['user' => $user, 'password' => $password];
+		$params = array('user' => $user, 'password' => $password);
 		if ($account) {
 			$params['account'] = $account;
 		}
@@ -414,14 +414,14 @@ class Perfit {
 	 * @return object
 	 */
 	private function error($message='Formato de solicitud invalido', $code=400) {
-		return [
+		return array(
 			'success' => false,
-			'error' => [
+			'error' => array(
 				'status' => $code,
 				'type' => 'Bad Request',
 				'userMessage' => $message,
-			]
-		];
+			)
+		);
 	}
 
 	/**
