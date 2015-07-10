@@ -204,7 +204,7 @@ function load_perfit_scripts() {
 
 function perfit_admin_actions() {
 
-    $favicon = plugin_dir_url( __FILE__ ) . '/js/logoperfit.jpg';
+    $favicon = plugin_dir_url( __FILE__ ) . '/js/logo.png';
     add_menu_page("Perfit Optin", "Perfit Optin", 9, 'perfit_optin', "perfit_list",$favicon);
     // add_submenu_page('social-engage', 'Optin', 'Optin', 9, 'social-engage', array('PerfitOptin', 'se_mainpage'));
 

@@ -348,13 +348,15 @@ optinPreview = {
                     jQuery('#'+varName+' [data-model='+id+'] input[type="checkbox"]').data('params', optinData[varName][id]['params']);
 
                     // Updates html span
-                    jQuery('#'+varName+' [data-model='+id+'] [data-role=display-name]').html('('+optinData[varName][id]['params']['displayName']+')');
+                    jQuery('#'+varName+' [data-model='+id+'] span.text-muted').html('('+optinData[varName][id]['params']['displayName']+')');
                     jQuery('#'+varName+' [data-model='+id+'] [data-role=display-name]').val(optinData[varName][id]['params']['displayName']);
                     jQuery('.modal.in').modal('hide');
                     jQuery('.autoresize').trigger('change');
 
-                    jQuery('.modal.in form').unbind(ev);
+                    if (jQuery('#'+varName+' [data-model='+id+'] [data-role=required]'))
+                        jQuery('#'+varName+' [data-model='+id+'] [data-role=required]').val(optinData[varName][id]['params']['required']? 'true' : 'false');
 
+                    jQuery('.modal.in form').unbind(ev);
                     optinPreview.hideDisplayName();
                     optinPreview.renderForm();
                 });
@@ -381,15 +383,16 @@ optinPreview = {
             return;
 
         fields.each(function(index, item){
-            var fieldName = jQuery(this).find('input[type="checkbox"]').data('field').toLowerCase();
-            var displayName = jQuery(this).find('span.text-muted input').val().toLowerCase();
+            var fieldName = jQuery(this).find('input[type="checkbox"]').data('field').trim();
+            var displayName = jQuery(this).find('[data-role=display-name]').val().trim();
 
             if (displayName == '') {
                 displayName = fieldName;
-                jQuery(this).find('span.text-muted input').val(fieldName);
+                jQuery(this).find('span.text-muted').val('('+fieldName+')');
+                jQuery(this).find('[data-role=display-name]').val(fieldName);
             }
 
-            if (fieldName == displayName)
+            if (fieldName.toLowerCase() == displayName.toLowerCase())
                 jQuery(this).find('span.text-muted').hide();
             else
                 jQuery(this).find('span.text-muted').show();

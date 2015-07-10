@@ -249,7 +249,9 @@ input.autoresize,
                                                             <label>
                                                                 <input name="data[form][fields][<?=$k?>][id]" <?=$fixed? ' class="fixed-field" readonly="readonly" ' : '' ?> data-field="<?=$field->name?>" data-update="change" value="<?=$field->id?>" type="checkbox" data-params='{"displayName": "<?=$selectedFields[$field->id]? $selectedFields[$field->id]->displayName : $field->name?>", "required": "<?=$selectedFields[$field->id]->required?>"}' <?=($selectedFields[$field->id])? 'checked="checked"' : ''?> >
                                                                 <?=$field->name?>
-                                                                <span class="text-muted">(<input type="text" readonly="readonly" name="data[form][fields][<?=$k?>][displayName]" data-role="display-name" value="<?=($selectedFields[$field->id])? $selectedFields[$field->id]->displayName : $field->name?>" class="autoresize">)</span>
+                                                                <input type="hidden" readonly="readonly" name="data[form][fields][<?=$k?>][displayName]" data-role="display-name" value="<?=($selectedFields[$field->id])? $selectedFields[$field->id]->displayName : $field->name?>" class="autoresize">
+                                                                <input type="hidden" readonly="readonly" name="data[form][fields][<?=$k?>][required]" data-role="required" value="<?=$selectedFields[$field->id]->required? 'true' : 'false' ?>">
+                                                                <span class="text-muted"><?=($selectedFields[$field->id])? '('.$selectedFields[$field->id]->displayName.')' : '('.$field->name.')'?></span>
                                                             </label>
                                                             <a class="actionable" data-modal=".field-modal" data-target=".field-modal" data-var="fields" data-id="<?=$field->id?>"> · Editar </a>
                                                         </li>
