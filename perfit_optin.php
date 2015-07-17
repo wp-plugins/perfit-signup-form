@@ -209,8 +209,8 @@ function perfit_admin_actions() {
     // add_submenu_page('social-engage', 'Optin', 'Optin', 9, 'social-engage', array('PerfitOptin', 'se_mainpage'));
 
     // add_options_page("Perfit Optin", "Perfit Optin", 1, "perfit_optin", "perfit_list");
+    //add_action('wp_dashboard_setup', 'add_perfit_optin_widget');
     do_action('wp_dashboard_setup');
-    add_action('wp_dashboard_setup', 'add_perfit_optin_widget');
 
 // die('aa');
 }
