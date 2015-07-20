@@ -37,6 +37,15 @@ input.autoresize,
 .p-select {
     height: 40px !important;
 }
+#fields li > .handle {
+    background: url("<?php echo plugins_url( '../images/handle.png', __FILE__); ?>") no-repeat scroll;
+    display: inline-block;
+    width: 4px;
+    height: 12px;
+}
+#fields li > .handle:hover {
+    cursor: move;
+}
 </style>
 
 
@@ -51,16 +60,17 @@ input.autoresize,
                             <input type="hidden" name="save" value="1">
                             <input type="hidden" name="data[name]" value="<?php echo $perfitConfig['optinName']?>">
                             <input type="hidden" name="id" value="<?php echo $id?>">
-                            <div class="toolbar">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="toolbar row">
+                                <h1><?=($id)? $optin->data->name : 'Nuevo optin' ?> </h1>
+                                <button type="submit" class="btn btn-primary pull-right">
                                     Guardar
                                 </button>
                                 <?php  if ($id): ?>
-                                <a href="/wp-admin/options-general.php?page=perfit_optin&delete=<?php echo $id?>" class="btn btn-danger pull-right" data-confirm="¿Está seguro de que desea eliminar el optin?" data-class="btn-danger" data-action="delete" type="button" style="margin-left: 10px;">
+                                <a href="/wp-admin/options-general.php?page=perfit_optin&delete=<?php echo $id?>" class="btn btn-danger pull-right" data-confirm="¿Está seguro de que desea eliminar el optin?" data-class="btn-danger" data-action="delete" type="button" style="margin-left: 10px; margin-right: 10px;">
                                     <i class="fa fa-trash"></i>Eliminar
                                 </a>
                                 <?php  endif; ?>
-                                <a href="/wp-admin/options-general.php?page=perfit_optin" class="btn btn-default pull-right" type="button"> Cancelar </a>
+                                <a href="/wp-admin/options-general.php?page=perfit_optin" class="btn btn-default pull-right" style="margin-right: 10px;" type="button"> Cancelar </a>
                             </div>
 
                             <div class="alert alert-danger" id="gral-error" role="alert" style="display: none;">
@@ -72,12 +82,12 @@ input.autoresize,
                             <ul class="nav nav-tabs">
                                 <li class="active">
                                     <a data-toggle="tab" data-target="#data">
-                                        Datos
+                                        General
                                     </a>
                                 </li>
                                 <li>
                                     <a data-toggle="tab" data-target="#design">
-                                        Diseño
+                                        Diseño de formulario
                                     </a>
                                 </li>
                                 <li>
@@ -87,62 +97,81 @@ input.autoresize,
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="data">
-                                    <div class="form-group">
-                                        <label>
-                                            Nombre
-                                        </label>
-                                        <!-- <?php echo $perfitConfig['optinName']?> -->
-                                        <input class="form-control" name="data[name]" id="input-name" value="<?php echo $optin->data->name?>" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            Descripción
-                                        </label>
-                                        <input class="form-control" name="data[description]" id="input-descripcion" value="<?php echo $optin->data->description?>" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label id="lists-label">
-                                            Listas
-                                        </label>
-
-                                        <div class="instant-search has-feedback">
-                                            <input class="form-control finder" type="text" data-filter="#lists-list" placeholder="Buscar">
-                                            <span class="form-control-feedback dashicons dashicons-search"></span>
+                                <div class="tab-pane active row" id="data">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label>
+                                                Nombre
+                                            </label>
+                                            <!-- <?php echo $perfitConfig['optinName']?> -->
+                                            <input class="form-control" name="data[name]" id="input-name" value="<?php echo $optin->data->name?>" type="text" placeholder="Nombre">
                                         </div>
-
-                                        <?php  if ($lists->data): ?>
-
-                                        <div id="lists-list" style="margin-top: 20px;">
-                                            <ul class="list-selector list-checker">
-                                            <?php  foreach ($lists->data as $list): ?>
-
-                                                <li class="item" data-role="list">
-                                                    <div class="checkbox" style="padding-bottom: 0;">
-                                                        <label>
-                                                            <input name="data[lists][]" value="<?php echo $list->id?>" type="checkbox" <?php echo in_array($list->id, $optin->data->lists)? 'checked="checked"' : ''?> >
-                                                            <div class="list-item" style="margin-left: 0;">
-                                                                <span class="list-name"><?php echo $list->name?></span>
-                                                                <span class="list-count">
-                                                                        <?=$list->totalContacts?> contactos
-                                                                </span>
-                                                                <span class="list-tags">
-                                                                    <?php if (!empty($list->tags)): ?>
-                                                                        <?php foreach ($list->tags as $tag): ?>
-                                                                    <span class="label label-primary"><?=$tag?></span>
-                                                                        <?php endforeach; ?>
-                                                                    <?php endif; ?>
-                                                                </span>
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            <?php  endforeach; ?>
-                                            </ul>
+                                        <div class="form-group">
+                                            <label>
+                                                Descripción
+                                            </label>
+                                            <input class="form-control" name="data[description]" id="input-descripcion" value="<?php echo $optin->data->description?>" type="text" placeholder="Descripción">
                                         </div>
-                                        <?php  else: ?>
-                                        <div class="checkbox">No hay listas creadas</div>
-                                        <?php  endif; ?>
+                                        <div class="form-group">
+                                            <p>Seleccioná las listas a las cuales querés suscribir los nuevos contactos:</p>
+                                            <label id="lists-label">
+                                                Listas
+                                            </label>
+
+                                            <div class="instant-search has-feedback">
+                                                <input class="form-control finder" type="text" data-filter="#lists-list" placeholder="Buscar">
+                                                <span class="form-control-feedback dashicons dashicons-search" style="color: #d6d6d6;"></span>
+                                            </div>
+
+                                            <?php  if ($lists->data): ?>
+
+                                            <div id="lists-list" style="margin-top: 20px;">
+                                                <ul class="list-selector list-checker">
+                                                <?php  foreach ($lists->data as $list): ?>
+
+                                                    <li class="item" data-role="list">
+                                                        <div class="checkbox" style="padding-bottom: 0;">
+                                                            <label>
+                                                                <input name="data[lists][]" value="<?php echo $list->id?>" type="checkbox" <?php echo in_array($list->id, $optin->data->lists)? 'checked="checked"' : ''?> >
+                                                                <div class="list-item" style="margin-left: 0;">
+                                                                    <span class="list-name"><?php echo $list->name?></span>
+                                                                    <span class="list-count">
+                                                                            <?=$list->totalContacts?> contactos
+                                                                    </span>
+                                                                    <span class="list-tags">
+                                                                        <?php if (!empty($list->tags)): ?>
+                                                                            <?php foreach ($list->tags as $tag): ?>
+                                                                        <span class="label label-primary"><?=$tag?></span>
+                                                                            <?php endforeach; ?>
+                                                                        <?php endif; ?>
+                                                                    </span>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                <?php  endforeach; ?>
+                                                </ul>
+                                            </div>
+                                            <?php  else: ?>
+                                            <div class="checkbox">No hay listas creadas</div>
+                                            <?php  endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="stats col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <span class="number">159</span>
+                                                <span class="reference">suscriptos totales</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span class="number">1.123</span>
+                                                <span class="reference">&uacute;ltimo mes</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span class="number">82</span>
+                                                <span class="reference">&uacute;ltima semana</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="design">
@@ -150,7 +179,7 @@ input.autoresize,
 
                                         <div class="col-md-6">
                                             <div class="panel panel-default">
-                                                <div class="panel-heading browser-bar"></div>
+                                                <div class="panel-heading">Vista previa</div>
                                                 <div class="panel-body live-preview">
                                                     <div data-preview="form">
                                                     </div>
@@ -237,8 +266,9 @@ input.autoresize,
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="fields">
-                                                    <label id="fields-label"></label>
+                                                    <span id="fields-label"></span>
                                                     <?php if (!empty($fields->data)): ?>
+                                                    <p>Seleccioná, reordená y editá los campos que desees:</p>
                                                     <ul class="sortable">
                                                         <?php foreach ($fields->data as $k => $field): 
                                                                 if (!$field->readOnly): 
@@ -246,6 +276,7 @@ input.autoresize,
                                                                     $fixed = in_array($field->id, $fixedFields)? true : false;
                                                         ?>
                                                         <li class="checkbox" data-model="<?=$field->id?>">
+                                                            <span class="handle"></span>
                                                             <label>
                                                                 <input name="data[form][fields][<?=$k?>][id]" <?=$fixed? ' class="fixed-field" readonly="readonly" ' : '' ?> data-field="<?=$field->name?>" data-update="change" value="<?=$field->id?>" type="checkbox" data-params='{"displayName": "<?=$selectedFields[$field->id]? $selectedFields[$field->id]->displayName : $field->name?>", "required": "<?=$selectedFields[$field->id]->required?>"}' <?=($selectedFields[$field->id])? 'checked="checked"' : ''?> >
                                                                 <?=$field->name?>

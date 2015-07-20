@@ -44,10 +44,25 @@ if(is_admin())
 
     wp_enqueue_style( 'bootstrap', plugins_url( '/css/bootstrap.min.css', __FILE__) );
     wp_enqueue_style( 'perfit-css', plugins_url( '/css/style.css', __FILE__) );
+    wp_enqueue_style( 'perfit-custom-css', plugins_url( '/css/custom.css', __FILE__) );
+
 }
+
+$query_args = array(
+    'family' => 'Source+Sans+Pro:400,300,700,600|Open+Sans:400,300,600,700,700italic',
+    'subset' => 'latin,latin-ext',
+);
+wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
 
 wp_enqueue_style( 'perfit-optin-default', plugins_url( '/css/default.css', __FILE__) );
 
+// function google_fonts() {
+//     $query_args = array(
+//         'family' => 'Source+Sans+Pro:400,300,700,600|Open+Sans:400,300,600,700,700italic',
+//         'subset' => 'latin,latin-ext',
+//     );
+//     wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+// }
 
 /*
  * Process login action
@@ -208,9 +223,9 @@ function perfit_admin_actions() {
     add_menu_page("Perfit Optin", "Perfit Optin", 9, 'perfit_optin', "perfit_list",$favicon);
     // add_submenu_page('social-engage', 'Optin', 'Optin', 9, 'social-engage', array('PerfitOptin', 'se_mainpage'));
 
-    // add_options_page("Perfit Optin", "Perfit Optin", 1, "perfit_optin", "perfit_list");
-    //add_action('wp_dashboard_setup', 'add_perfit_optin_widget');
-    do_action('wp_dashboard_setup');
+    //add_options_page("Perfit Optin", "Perfit Optin", 1, "perfit_optin", "perfit_list");
+    // add_action('wp_dashboard_setup', 'add_perfit_optin_widget');
+    // do_action('wp_dashboard_setup');
 
 // die('aa');
 }

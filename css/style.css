@@ -910,3 +910,153 @@ textarea.embed-code {
     }
 
 }
+
+/*********** Optin admin-specific style ************/
+
+#login {
+	margin-top: 40px;
+}
+legend {
+	border: 0;
+}
+label {
+	color: #434343;
+}
+input {
+	border-radius: 0;
+}
+.form-control {
+	border-radius: 0;
+}
+.btn {
+	text-transform: uppercase;
+	float: left;
+	width: auto;
+	padding: 3px 10px;
+	border-radius: 2px;
+	border-color: transparent;
+	font-size: 15px;
+}
+.btn-primary {
+	background-color: #01B0E7;
+}
+#login .container > .row > .col-md-4 {
+	min-width: 500px;
+}
+
+#optin-list {
+	max-width: 1120px;
+}
+#optin-list .toolbar .btn-primary {
+	padding: 3px 10px;
+	font-size: 14px;
+	margin-left: 25px;
+}
+.toolbar {
+	background-color: #E9F3FC;
+	padding: 5px;
+	border-radius: 0;
+}
+
+#optin-list .table thead {
+	display: none;
+}
+#optin-list .table tbody {
+	margin-top: 10px;
+}
+#optin-list .table > tbody > tr > td {
+	border-top: 0;
+	border-bottom: 1px #d8d8d8 solid;
+}
+#optin-list .table tr:hover {
+	background-color: #F2F2F2;
+}
+#optin-list .table td.main {
+	width: 60%;
+}
+#optin-list .table td.stats {
+	width: 13%;
+	text-align: right;
+}
+.stats .number {
+	font-size: 30px;
+	font-weight: normal;
+	color: #696969;
+	display: block;
+	text-align: right;
+}
+.stats .reference {
+	color: #d8d8d8;
+	font-weight: bold;
+	font-size: 12px;
+	display: block;
+	text-align: right;
+}
+#optin-list .table td .name {
+	font-size: 25px;
+	display: block;
+	color: #696969;
+	font-weight: normal;
+	margin: 0;
+}
+#optin-list .table td .description {
+	font-size: 14px;
+	display: block;
+	color: #696969;
+	font-weight: normal;
+	font-style: normal;
+	margin: 0;
+}
+#optin-list .table td .created {
+	font-size: 12px;
+	display: block;
+	color: #d7d7d7;
+	margin: 0;
+}
+
+.alert-success {
+	padding: 5px 10px;
+	color: #fff;
+	background-color: #3c763d;
+	margin-bottom: 20px;
+}
+.container {
+	max-width: 1100px;
+}
+.toolbar h1 {
+	color: #00aee7;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 5px;
+	display: inline-block;
+}
+
+.nav-tabs li a {
+	color: #00aee7;
+	margin-right: 20px;
+	padding: 0;
+	text-align: left;
+	text-transform: uppercase;
+}
+.nav-tabs {
+	border-bottom: 1px solid #00aee7;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #00aee7;
+	font-weight: bold;
+	border-color: #00aee7;
+}
+#data .stats > .row > div {
+	border-left: 1px #d8d8d8 solid;
+}
+#data .stats > .row > div:first-child {
+	border-left: 0
+}
+.list-selector .list-name {
+	font-weight: normal;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background-color: #fff;
+	color: #00aee7;
+}

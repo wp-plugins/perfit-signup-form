@@ -1,13 +1,32 @@
+<?php
+
+/*
+    [0] => stdClass Object
+        (
+            [id] => 2
+            [pubId] => febyUMyP
+            [name] => Facebook Optin
+            [description] => Formulario de suscripción en Facebook
+            [created] => 2015-07-03T03:03:16.000+0000
+            [lastModified] => 2015-07-10T20:29:40.000+0000
+            [lists] => Array
+                (
+                    [0] => 7
+                )
+
+        )
+*/
+?>
 
 <div class="wrap">
-        <div class="container">
+        <div class="container" id="optin-list">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page">
                         <div class="list">
-                            <div class="toolbar">
+                            <div class="toolbar row">
                                 <a href="options-general.php?page=perfit_optin&action=new" class="btn btn-primary">
-                                    Agregar
+                                    Nuevo
                                 </a>
                                 <div class="actions hide">
                                     <button class="btn btn-default" data-action="mass" data-method="destroy">
@@ -51,19 +70,24 @@
                                         <td>
                                             <!-- <input value="<?php echo $optin->id?>" data-action="check" type="checkbox"> -->
                                         </td>
-                                        <td>
+                                        <td class="main">
                                             <a href="<?php echo $_SERVER['REQUEST_URI']?>&id=<?php echo $optin->id?>">
-                                                <?php echo $optin->name?>
+                                                <span class="name"><?php echo $optin->name?></span>
                                             </a>
+                                            <p class="description"><?php echo $optin->description?></p>
+                                            <p class="created">Creada el <?php echo strftime("%e de %B", strtotime($optin->created))?></p>
                                         </td>
-                                        <td>
-                                            <?php echo $optin->description?>
+                                        <td class="stats">
+                                            <span class="number">159</span>
+                                            <span class="reference">suscriptos totales</span>
                                         </td>
-                                        <td>
-                                            [perfit_optin <?php echo $perfit->account()?>:<?php echo $optin->pubId?>]
+                                        <td class="stats">
+                                            <span class="number">1.123</span>
+                                            <span class="reference">&uacute;ltimo mes</span>
                                         </td>
-                                        <td>
-                                            <?php echo strftime("%e de %B", strtotime($optin->created))?>
+                                        <td class="stats">
+                                            <span class="number">82</span>
+                                            <span class="reference">&uacute;ltima semana</span>
                                         </td>
                                     </tr>
                                         <?php  endforeach; ?>

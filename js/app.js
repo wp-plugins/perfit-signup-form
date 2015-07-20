@@ -27,6 +27,7 @@ optinPreview = {
         optinPreview.bindEvents();
 
         jQuery('.sortable').sortable({
+            handle: '.handle',
             stop: function( event, ui ) {
                 optinPreview.renderForm();
             }

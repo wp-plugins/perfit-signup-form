@@ -6,7 +6,7 @@
 
 <div class="wrap">
 
-    <div class='app'>
+    <div class='app' id="login">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -19,7 +19,7 @@
                             <label>
                                 Email
                             </label>
-                            <input class="form-control" name="email" type="text" value="<?=$_SESSION['userEmail']?>">
+                            <input class="form-control" name="email" type="text" value="<?=$_SESSION['userEmail']?>" placeholder="Email">
                         </div>
                         <?php if ($_SESSION['accountList']): ?>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                             <label>
                                 Contraseña
                             </label>
-                            <input class="form-control" name="password" autocomplete="off" type="password">
+                            <input class="form-control" name="password" autocomplete="off" type="password" placeholder="Contraseña">
                         </div>
 
                         <?php echo ($_SESSION['error'])? '<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>' : '' ?>
