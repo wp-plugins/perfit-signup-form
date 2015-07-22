@@ -20,7 +20,7 @@ foreach ($acl as $needle) {
 }
 
 // Obtengo los optins
-$optins = $perfit->optins->limit(1000)->get();
+$optins = $perfit->optins->params(['fields' => 'subscriptions'])->limit(1000)->get();
 
 if ($optins->error->type == 'UNAUTHORIZED') {
     unset($_SESSION['token']);

@@ -157,22 +157,24 @@ input.autoresize,
                                             <?php  endif; ?>
                                         </div>
                                     </div>
+                                    <?php if ($id): ?>
                                     <div class="stats col-md-5">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <span class="number">159</span>
+                                                <span class="number"><?=number_format($optin->subscriptions->total, 0, '', '.')?></span>
                                                 <span class="reference">suscriptos totales</span>
                                             </div>
                                             <div class="col-md-4">
-                                                <span class="number">1.123</span>
+                                                <span class="number"><?=number_format($optin->subscriptions->lastMonth, 0, '', '.')?></span>
                                                 <span class="reference">&uacute;ltimo mes</span>
                                             </div>
                                             <div class="col-md-4">
-                                                <span class="number">82</span>
+                                                <span class="number"><?=number_format($optin->subscriptions->lastWeek, 0, '', '.')?></span>
                                                 <span class="reference">&uacute;ltima semana</span>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="tab-pane" id="design">
                                     <div class="row">

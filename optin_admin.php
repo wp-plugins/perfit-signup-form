@@ -72,25 +72,33 @@ if ($optin && isset($optin->data->form) && isset($optin->data->form->fields)) {
 
 // Move selected interests to top of interests list
 $topInterest = array();
-foreach ($interests->data as $k => $v) {
-    if (isset($selectedInterests[$v->id])) {
-        array_unshift($topInterests, $v);
-        unset($interests->data[$k]);
+if ($interests->data) {
+    foreach ($interests->data as $k => $v) {
+        if (isset($selectedInterests[$v->id])) {
+            array_unshift($topInterests, $v);
+            unset($interests->data[$k]);
+        }
     }
 }
-foreach ($topInterests as $k => $v)
-    array_unshift($interests->data, $v);
+if ($topInterests) {
+    foreach ($topInterests as $k => $v)
+        array_unshift($interests->data, $v);
+}
 
 // Move selected fields to top of fields list
 $topFields = array();
-foreach ($fields->data as $k => $v) {
-    if (isset($selectedFields[$v->id])) {
-        array_unshift($topFields, $v);
-        unset($fields->data[$k]);
+if ($fields->data) {
+    foreach ($fields->data as $k => $v) {
+        if (isset($selectedFields[$v->id])) {
+            array_unshift($topFields, $v);
+            unset($fields->data[$k]);
+        }
     }
 }
-foreach ($topFields as $k => $v)
-    array_unshift($fields->data, $v);
+if ($topFields) {
+    foreach ($topFields as $k => $v)
+        array_unshift($fields->data, $v);
+}
 
 // Move selected lists to top of lists list
 $topLists = array();

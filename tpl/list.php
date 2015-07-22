@@ -15,6 +15,13 @@
                 )
 
         )
+
+        [subscriptions] => stdClass Object
+            (
+                [total] => 0
+                [lastMonth] => 0
+                [lastWeek] => 0
+            )
 */
 ?>
 
@@ -78,15 +85,15 @@
                                             <p class="created">Creada el <?php echo strftime("%e de %B", strtotime($optin->created))?></p>
                                         </td>
                                         <td class="stats">
-                                            <span class="number">159</span>
+                                            <span class="number"><?=number_format($optin->subscriptions->total, 0, '', '.')?></span>
                                             <span class="reference">suscriptos totales</span>
                                         </td>
                                         <td class="stats">
-                                            <span class="number">1.123</span>
+                                            <span class="number"><?=number_format($optin->subscriptions->lastMonth, 0, '', '.')?></span>
                                             <span class="reference">&uacute;ltimo mes</span>
                                         </td>
                                         <td class="stats">
-                                            <span class="number">82</span>
+                                            <span class="number"><?=number_format($optin->subscriptions->lastWeek, 0, '', '.')?></span>
                                             <span class="reference">&uacute;ltima semana</span>
                                         </td>
                                     </tr>
