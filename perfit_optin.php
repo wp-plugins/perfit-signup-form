@@ -11,6 +11,7 @@
 include(dirname(__FILE__).'/includes/loader.php');
 
 /***** Sanitize all params (GET, POST) *****/
+/*
 function sanitize_recursively ($data) {
     if (!is_array($data))
         return sanitize_text_field($data);
@@ -22,6 +23,7 @@ function sanitize_recursively ($data) {
 foreach (array('_POST', '_GET') as $var) {
     ${$var} = sanitize_recursively(${$var});
 }
+*/
 
 if(is_admin())
 {
