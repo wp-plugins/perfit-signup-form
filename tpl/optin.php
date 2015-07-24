@@ -51,7 +51,7 @@ input.autoresize,
 
 <div class="wrap">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page">
@@ -161,15 +161,15 @@ input.autoresize,
                                     <div class="stats col-md-5">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <span class="number"><?=number_format($optin->subscriptions->total, 0, '', '.')?></span>
+                                                <span class="number"><?=number_format($optin->data->subscriptions->total, 0, '', '.')?></span>
                                                 <span class="reference">suscriptos totales</span>
                                             </div>
                                             <div class="col-md-4">
-                                                <span class="number"><?=number_format($optin->subscriptions->lastMonth, 0, '', '.')?></span>
+                                                <span class="number"><?=number_format($optin->data->subscriptions->lastMonth, 0, '', '.')?></span>
                                                 <span class="reference">&uacute;ltimo mes</span>
                                             </div>
                                             <div class="col-md-4">
-                                                <span class="number"><?=number_format($optin->subscriptions->lastWeek, 0, '', '.')?></span>
+                                                <span class="number"><?=number_format($optin->data->subscriptions->lastWeek, 0, '', '.')?></span>
                                                 <span class="reference">&uacute;ltima semana</span>
                                             </div>
                                         </div>
@@ -337,49 +337,49 @@ input.autoresize,
                                                 <label>
                                                     Correo del emisor
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][fromAddress]" id="input-form-confirmation-fromAddress" data-optin="fromAddress" value="<?php echo $optin->data->confirmation->fromAddress?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][fromAddress]" id="input-confirmation-fromAddress" data-optin="fromAddress" value="<?php echo $optin->data->confirmation->fromAddress?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Nombre del emisor
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][fromName]" id="input-form-confirmation-fromName" data-optin="fromName" value="<?php echo $optin->data->confirmation->fromName?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][fromName]" id="input-confirmation-fromName" data-optin="fromName" value="<?php echo $optin->data->confirmation->fromName?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Asunto
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][subject]" id="input-form-confirmation-subject" data-optin="subject" value="<?php echo $optin->data->confirmation->subject?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][subject]" id="input-confirmation-subject" data-optin="subject" value="<?php echo $optin->data->confirmation->subject?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     T&iacute;tulo
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][title]" id="input-form-confirmation-title" data-optin="confirmationTitle" value="<?php echo $optin->data->confirmation->title?>" type="text">
+                                                <input class="form-control" name="data[confirmation][title]" id="input-confirmation-title" data-optin="confirmationTitle" value="<?php echo $optin->data->confirmation->title?>" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Encabezado
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][header]" id="input-form-confirmation-header" data-optin="header" value="<?php echo $optin->data->confirmation->header?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][header]" id="input-confirmation-header" data-optin="header" value="<?php echo $optin->data->confirmation->header?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Texto del vínculo
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][linkText]" id="input-form-confirmation-linkText" data-optin="linkText" value="<?php echo $optin->data->confirmation->linkText?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][linkText]" id="input-confirmation-linkText" data-optin="linkText" value="<?php echo $optin->data->confirmation->linkText?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Pie
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][footer]" id="input-form-confirmation-footer" data-optin="mailFooter" value="<?php echo $optin->data->confirmation->footer?>" data-update="keyUp" type="text">
+                                                <input class="form-control" name="data[confirmation][footer]" id="input-confirmation-footer" data-optin="mailFooter" value="<?php echo $optin->data->confirmation->footer?>" data-update="keyUp" type="text">
                                             </div>
                                             <div class="form-group">
                                                 <label>
                                                     Pagina de agradecimiento
                                                 </label>
-                                                <input class="form-control" name="data[confirmation][redirect]" id="input-form-confirmation-redirect" value="<?php echo $optin->data->confirmation->redirect?>" type="text">
+                                                <input class="form-control" name="data[confirmation][redirect]" id="input-confirmation-redirect" value="<?php echo $optin->data->confirmation->redirect?>" type="text">
                                             </div>
                                         </div>
                                     </div>

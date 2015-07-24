@@ -210,19 +210,21 @@ optinPreview = {
 
         // Form submit validations
         jQuery('form.save').submit(function(ev){
-            // if (jQuery('#form-validated').val() == 1)
-            //     return true;
 
             ev.preventDefault();
 
             jQuery('#gral-error').css({'display': 'none'});
-            jQuery('.error.alert').remove();
+            jQuery('.alert-success').css({'display': 'none'});
+            jQuery('.input-error').removeClass('input-error');
+            jQuery('.input-error-message').remove();
 
             var action = jQuery(this).attr('action');
             var data = jQuery(this).serialize();
             jQuery.post(action, data, function(result){
                 if (result == 'true') {
-                    top.location.href="options-general.php?page=perfit_optin&success=1";
+//                    top.location.href=top.location.href+'?success=1';
+                    var location = document.location.replace('?success=1', '');
+                    document.location=location+'?success=1';
                     return true;
                 }
 
@@ -231,8 +233,9 @@ optinPreview = {
 
                 jQuery.each(result.validationErrors, function(index, item){
                     index = index.replace(/\./g, '-');
-                    var newEl = jQuery('<div id="error-input-'+index+'" class="error alert alert-danger">'+item+'</div>');
+                    var newEl = jQuery('<div id="error-input-'+index+'" class="alert-danger input-error-message">'+item+'</div>');
                     if (jQuery('#input-'+index).length > 0) {
+                        jQuery('#input-'+index).addClass('input-error');
                         newEl.insertAfter(jQuery('#input-'+index));
                     }
                     if (index == 'form-fields') {

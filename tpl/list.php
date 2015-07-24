@@ -26,7 +26,7 @@
 ?>
 
 <div class="wrap">
-        <div class="container" id="optin-list">
+        <div class="container-fluid" id="optin-list">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page">
@@ -65,7 +65,7 @@
                                             Shortcode
                                         </th>
                                         <th>
-                                            Creada
+                                            Creado
                                         </th>
                                     </tr>
                                 </thead>
@@ -82,7 +82,7 @@
                                                 <span class="name"><?php echo $optin->name?></span>
                                             </a>
                                             <p class="description"><?php echo $optin->description?></p>
-                                            <p class="created">Creada el <?php echo strftime("%e de %B", strtotime($optin->created))?></p>
+                                            <p class="created">Creado el <?php echo strftime("%e de %B", strtotime($optin->created))?></p>
                                         </td>
                                         <td class="stats">
                                             <span class="number"><?=number_format($optin->subscriptions->total, 0, '', '.')?></span>
