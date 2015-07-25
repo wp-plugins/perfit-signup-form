@@ -132,7 +132,7 @@ input.autoresize,
                                                     <li class="item" data-role="list">
                                                         <div class="checkbox" style="padding-bottom: 0;">
                                                             <label>
-                                                                <input name="data[lists][]" value="<?php echo $list->id?>" type="checkbox" <?php echo in_array($list->id, $optin->data->lists)? 'checked="checked"' : ''?> >
+                                                                <input name="data[lists][]" value="<?php echo $list->id?>" type="checkbox" <?php echo is_array($optin->data->lists) && in_array($list->id, $optin->data->lists)? 'checked="checked"' : ''?> >
                                                                 <div class="list-item" style="margin-left: 0;">
                                                                     <span class="list-name"><?php echo $list->name?></span>
                                                                     <span class="list-count">

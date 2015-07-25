@@ -104,7 +104,7 @@ if ($topFields) {
 $topLists = array();
 if ($optin) {
     foreach ($lists->data as $k => $v) {
-        if (in_array($v->id, $optin->data->lists)) {
+        if (is_array($optin->data->lists) && in_array($v->id, $optin->data->lists)) {
             array_unshift($topLists, $v);
             unset($lists->data[$k]);
         }

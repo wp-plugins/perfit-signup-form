@@ -70,7 +70,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php  if (!empty($optins->data)): ?>
+                                    <?php  if (!empty($optins->data) && 0): ?>
                                         <?php  foreach ($optins->data as $optin): ?>
                                     <tr>
 
@@ -99,8 +99,14 @@
                                     </tr>
                                         <?php  endforeach; ?>
                                     <?php  else: ?>
-                                    <tr data-id="23">
-                                        <td colspan="4">No se encontraron resultados</td>
+                                    <tr>
+                                        <td colspan="4" class="empty-state">
+                                            <img src="<?php echo plugins_url( '../images/empty.png', __FILE__); ?>">
+                                            <div class="message">
+                                                <h2>No ten&eacute;s formularios a&uacute;n.</h2>
+                                                <h3>Cre&aacute; un formulario para empezar<br/>a sumar suscriptores.</h3>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <?php  endif; ?>
                                 </tbody>

@@ -223,7 +223,7 @@ optinPreview = {
             jQuery.post(action, data, function(result){
                 if (result == 'true') {
 //                    top.location.href=top.location.href+'?success=1';
-                    var location = document.location.replace('?success=1', '');
+                    var location = document.location.href.replace('?success=1', '');
                     document.location=location+'?success=1';
                     return true;
                 }
