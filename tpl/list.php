@@ -70,7 +70,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php  if (!empty($optins->data) && 0): ?>
+                                    <?php  if (!empty($optins->data)): ?>
                                         <?php  foreach ($optins->data as $optin): ?>
                                     <tr>
 
