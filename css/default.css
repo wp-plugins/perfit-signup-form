@@ -1,0 +1,141 @@
+body.p-popup-open {
+    overflow: hidden;
+}
+
+.p-optin,
+.p-optin * {
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+.p-optin {
+    width: 100%;
+    color: #000;
+    background: #FFF;
+    max-width: 500px;
+    border-radius: 3px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.p-close {
+    background: #000 none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 21px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    top: -10px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.p-inline .p-close {
+    display: none;
+}
+
+.p-optin .p-header {
+    background: #0088cc;
+    color: #FFF;
+    padding: 0.75em 1em;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: bold;
+}
+
+.p-optin .p-body {
+    border: 3px solid #DDD;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.p-header + .p-body {
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.p-optin .p-body p {
+    margin: 0 0 1em;
+    color: #666;
+}
+
+.p-optin .p-field {
+    margin-bottom: 1em;
+}
+
+.p-optin label {
+    font-weight: normal;
+}
+
+.p-optin .p-field label span {
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    display: block;
+}
+
+.p-optin .p-field select,
+.p-optin .p-field input[type=text] {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 100%;
+    padding: 0.5em;
+    width: 100%;
+    background: #FFF;
+}
+
+.p-optin .p-field input[type=text].p-error {
+    border-color: #FF0000;
+}
+
+.p-optin .p-field .p-error-message {
+    color: #FF0000;
+    font-style: italic;
+    font-size: 75%;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.p-optin .p-interests {
+    margin-bottom: 1em;
+}
+
+.p-open,
+.p-optin button {
+    border: none;
+    background: #0088cc;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 100%;
+    padding: 0.75em 1em;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.p-optin .p-success {
+    padding: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.p-layer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.p-layer.p-closed {
+    display: none;
+}
+
