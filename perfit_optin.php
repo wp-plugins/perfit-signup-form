@@ -4,7 +4,7 @@
     Plugin URI: http://www.perfit.com.ar/
     Description: Plugin para suscribir contactos desde tu sitio WordPress
     Author: Perfit dev team
-    Version: 1.0
+    Version: 1.1.2
     Author URI: https://developers.myperfit.com/wordpress
     */
 
