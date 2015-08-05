@@ -1,4 +1,4 @@
-<?
+<?php
 // echo '<pre>'.print_r($optin, true).'</pre>';
 
 $fixedFields = array(3);
